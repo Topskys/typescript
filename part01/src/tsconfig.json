@@ -1,0 +1,52 @@
+{
+    /**
+     * include：需要编译的文件 exclude：反之，默认值["node_modules","bower_components","jspm_packages"]
+     * 路径：**，表示任意目录
+     * 文件：*，任意文件 
+     */    
+    "include": [
+        "./src/**/*"
+    ],
+    "exclude": [
+        "./src/**/*"
+    ],
+    // 定义被继承的配置文件
+    // "extends": "./config/base",
+    // 在files列表内才会被编译
+    // "files": [
+    //     "index.ts"
+    // ],
+    // 编译选项配置 
+    "compilerOptions": {
+        // 指定ts编译为ES的版本，最新版：ESNext
+        "target": "ES6",
+        // 指定模块化规范的版本，commonjs，...
+        "module": "system",
+        // 项目依赖库库，有默认值
+        // "lib":["xx"],
+        // 指定编译后的文件存放位置
+        "outDir": "./dist",
+        // 将代码编译后合并成一个文件，需要模块规范为system
+        // "outFile": "./dist/index.js",
+        // 是否编译js文件
+        "allowJs": true,
+        // 检查js语法
+        "checkJs": true,
+        // 是否移除编译后的注释
+        "removeComments": false,
+        // 不生成编译后的文件
+        "noEmit":false,
+        // ts有误不编译
+        "noEmitOnError": true,
+        // 所有严格模块总开关
+        "strict": true,
+        // 严格模式
+        // "alwaysStrict": true,
+        // 不允许指定默认类型，like: any(隐式)
+        // "noImplicitAny": true,
+        // 不允许不明确的this
+        // "noImplicitThis": true,
+        // 严格的检查空值
+        // "strictNullChecks": true,
+    }
+}
