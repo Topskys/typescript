@@ -3,7 +3,7 @@
  * @Date: 2022-10-08 23:21:28
  * @LastEditTime: 2022-10-09 20:13:58
 -->
-# TypeScript
+# TypeScript  尚硅谷
 ```
 # 安装环境，需要nodejs和TypeScript环境
 cnpm i -g typescript

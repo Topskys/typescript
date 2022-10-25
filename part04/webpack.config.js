@@ -1,7 +1,7 @@
 /*
  * @Author: Topskys
  * @Date: 2022-10-09 15:12:44
- * @LastEditTime: 2022-10-10 17:08:49
+ * @LastEditTime: 2022-10-25 13:46:10
  * webpack配置
  */
 // 引入path包，用于路径拼接
@@ -11,24 +11,18 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-    mode: 'production',
-    // 指定入口文件
-    entry: './src/index.ts',
-    // 指定打包文件存放目录
-    output: {
+    mode: 'production',  // "build": "webpack --mode production"
+    entry: './src/index.ts',// 指定入口文件
+    output: { // 指定打包文件存放目录
         path: path.resolve(__dirname, 'dist'),
-        // 打包后文件名
-        filename: "bundle.js",
-        // 配置打包环境
-        environment: {
-            // 不用箭头函数
-            arrowFunction: false,
+        filename: "bundle.js",// 打包后文件名
+        environment: {// 配置打包环境
+            arrowFunction: false,// 不用箭头函数
+            const: false,// 不使用const以兼容IE等低版本浏览器
         },
     },
-    // 指定webpack打包时要是用模块
-    module: {
-        // 指定要加载的规则
-        rules: [
+    module: { // 指定webpack打包时要是用模块
+        rules: [ // 指定要加载的规则
             {
                 // 指定处理文件
                 test: /\.ts$/,
@@ -73,15 +67,33 @@ module.exports = {
                     "style-loader",
                     "css-loader",
                     // 引入postcss
-
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    [
+                                        "postcss-preset-env",
+                                        {
+                                            browsers: "last 2 versions"
+                                        }
+                                    ]
+                                ]
+                            }
+                        }
+                    },
                     "less-loader",
                 ]
             }
         ]
     },
+    // 使用webpack-dev-server需要注释掉引用模块
     // Webpack 默认只会解析['.js', '.json', '.wasm']，配置webpack引用模块
     resolve: {
-        extensions: ['.ts', '.scss', '.less']
+        extensions: ['.ts', '.scss', '.less', '.json', '.js', '.wasm'],
+        alias: {
+            '@': '/src'
+        }
     },
     // 配置插件
     plugins: [

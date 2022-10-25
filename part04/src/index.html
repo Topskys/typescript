@@ -1,7 +1,7 @@
 <!--
  * @Author: Topskys
  * @Date: 2022-10-10 16:05:54
- * @LastEditTime: 2022-10-10 17:09:14
+ * @LastEditTime: 2022-10-25 14:05:46
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +14,31 @@
 </head>
 
 <body>
-    <div>snake</div>
-    <script src="../dist/bundle.js"></script>
+    <div>
+        <!-- 创建主游戏窗口 -->
+        <div class="main__container">
+            <!-- 游戏活动区 -->
+            <div class="body__container">
+                <!-- 蛇 -->
+                <div id="snake">
+                    <div></div>
+                </div>
+                <!-- 食物 -->
+                <div id="food">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <!-- 底部积分区 -->
+            <div class="footer__container">
+                <div>SCORE: 0<span id="score"></span></div>
+                <div>LEVEL: 1<span id="level"></span></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../dist/bundle.js"></script>
 </body>
 
 </html>
